@@ -49,9 +49,15 @@ end
   end
 
   def check_win_or_lose
-      return :win if @word.split("").uniq.length == @guesses.length
-      return :lose if @guesses.length + @wrong_guesses.length >= 7
+    if @word.split("").uniq.length == @guesses.length
+     # puts "You win!" 
+      return :win
+    elsif @guesses.length + @wrong_guesses.length >= 7
+     # puts "Sorry, you lose!"
+      return :lose 
+    else
       return :play
+    end
   end
     
   def self.get_random_word
